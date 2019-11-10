@@ -21,6 +21,8 @@ int main(){
   printf("Writing numbers to file.\n");
   write(fd, nums, sizeof(nums));
   if (errno) printf("Error: %d - %s\n", errno, strerror(errno));
+  close(fd);
+  fd = open("nums.txt", O_RDONLY);
   printf("Verification that numbers are the same (by reading):\n");
   read(fd, nums, sizeof(nums));
   i = 0;
@@ -32,10 +34,10 @@ int main(){
 int randInt(){
   int f = open("/dev/random", O_RDONLY);
   if (errno) printf("Error: %d - %s\n", errno, strerror(errno));
-  int * buff;
-  read(f, buff, sizeof(int));
+  int buff;
+  read(f, &buff, sizeof(int));
   if (errno) printf("Error: %d - %s\n", errno, strerror(errno));
   close(f);
   if (errno) printf("Error: %d - %s\n", errno, strerror(errno));
-  return *buff;
+  return buff;
 }
