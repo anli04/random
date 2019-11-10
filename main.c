@@ -31,7 +31,7 @@ int main(){
 int * randInt(){
   int fd = open("/dev/random", O_RDONLY);
   if (errno) printf("Error: %d - %s\n", errno, strerror(errno));
-  int * buff;
+  int buff[1];
   read(fd, buff, sizeof(int));
   if (errno) printf("Error: %d - %s\n", errno, strerror(errno));
   close(fd);
