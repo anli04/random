@@ -32,7 +32,7 @@ int main(){
 }
 
 int randInt(){
-  int f = open("/dev/random", O_RDONLY);
+  int f = open("/dev/urandom", O_RDONLY);
   if (errno) printf("Error: %d - %s\n", errno, strerror(errno));
   int buff;
   read(f, &buff, sizeof(int));
