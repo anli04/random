@@ -30,12 +30,12 @@ int main(){
 }
 
 int randInt(){
-  int fd = open("/dev/random", O_RDONLY);
+  int f = open("/dev/random", O_RDONLY);
   if (errno) printf("Error: %d - %s\n", errno, strerror(errno));
   int * buff;
-  read(fd, buff, sizeof(int));
+  read(f, buff, sizeof(int));
   if (errno) printf("Error: %d - %s\n", errno, strerror(errno));
-  close(fd);
+  close(f);
   if (errno) printf("Error: %d - %s\n", errno, strerror(errno));
   return *buff;
 }
