@@ -11,7 +11,7 @@ int randInt();
 int main(){
   int fd = open("nums.txt", O_RDWR | O_CREAT, 0644);
   if (errno) printf("Error: %d - %s\n", errno, strerror(errno));
-  int nums[11];
+  int nums[10];
   printf("Generating random numbers:\n");
   int i = 0;
   for (; i < 10; i++) nums[i] = randInt();
