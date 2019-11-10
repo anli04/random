@@ -9,7 +9,7 @@
 int randInt();
 
 int main(){
-  int fd = open("nums.txt", O_RDWR | O_CREAT, 644);
+  int fd = open("nums.txt", O_RDWR | O_CREAT, 0644);
   if (errno) printf("Error: %d - %s\n", errno, strerror(errno));
   int nums[11];
   printf("Generating random numbers:\n");
